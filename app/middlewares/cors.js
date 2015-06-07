@@ -5,6 +5,6 @@
  */
 
 module.exports = function (req, res, next) {
-  require('cors')();
+  console.log('cors');
   next();
 };

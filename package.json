@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start" : "npm publish .",
+    "test"  : "mocha -u bdd"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,12 @@
   },
   "homepage": "https://github.com/moajs/moa-middlewares#readme",
   "devDependencies": {
-    "cors": "^2.7.1"
+    "express": "^4.12.4",
+    "mocha": "^2.2.5",
+    "should": "^6.0.3",
+    "supertest": "^1.0.1"
+  },
+  "dependencies": {
+    "require-directory": "^2.1.1"
   }
 }
