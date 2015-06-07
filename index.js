@@ -28,7 +28,7 @@ Middlewares.prototype.dir = function(dir) {
 }
 
 Middlewares.prototype.mount = function(middlewares) {
-  console.log(typeof middlewares);
+  // console.log(typeof middlewares);
   
   if(typeof middlewares == 'array'){
     debug('array')
@@ -53,15 +53,15 @@ Middlewares.prototype.mount_one = function(middleware) {
   this.app.use(middleware);
 };
 
-
 Middlewares.prototype.toObject = function() {
   var requireDirectory = require('require-directory');
   var middlewares = requireDirectory(module, this.dir);
   
+  this.middlewares = middlewares;
   _extend(this, middlewares);
 }
 
-// ------ private 
+// ------ private
 function _extend(des, src) { 
   if (!des) { 
     des = {}; 
@@ -75,6 +75,7 @@ function _extend(des, src) {
   return des; 
 } 
 
+// ------- public 
 module.exports = function (app, dir) {
   var _dir = "app/middlewares";
   
