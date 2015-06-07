@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/moajs/moa-middlewares/issues"
   },
-  "homepage": "https://github.com/moajs/moa-middlewares#readme"
+  "homepage": "https://github.com/moajs/moa-middlewares#readme",
+  "devDependencies": {
+    "cors": "^2.7.1"
+  }
 }
