@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start" : "npm publish .",
-    "test"  : "mocha -u bdd"
+    "start": "npm publish .",
+    "test": "mocha -u bdd"
   },
   "repository": {
     "type": "git",
@@ -17,9 +17,9 @@
     "url": "https://github.com/moajs/moa-middlewares/issues"
   },
   "homepage": "https://github.com/moajs/moa-middlewares#readme",
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
+    "debug": "^2.2.0",
     "require-directory": "^2.1.1"
   }
 }
