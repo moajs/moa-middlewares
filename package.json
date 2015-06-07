@@ -18,10 +18,6 @@
   },
   "homepage": "https://github.com/moajs/moa-middlewares#readme",
   "devDependencies": {
-    "express": "^4.12.4",
-    "mocha": "^2.2.5",
-    "should": "^6.0.3",
-    "supertest": "^1.0.1"
   },
   "dependencies": {
     "require-directory": "^2.1.1"

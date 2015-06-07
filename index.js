@@ -7,7 +7,7 @@
 function Middlewares(app, dir) {
   this._app = app;
   
-  if (!arguments[0]) {
+  if (!arguments[1]) {
     this.dir = "app/middlewares";
   } else {
     this.dir = dir;
