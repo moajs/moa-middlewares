@@ -12,6 +12,8 @@ function Middlewares(app, dir) {
   debug('moa-middlewares mount dir %s', this.dir);
   this.toObject();
   
+  // console.log(this.middlewares);
+  
   return this;
 };
 
@@ -29,29 +31,42 @@ Middlewares.prototype.dir = function(dir) {
 
 Middlewares.prototype.mount = function(middlewares) {
   // console.log(typeof middlewares);
-  
-  if(typeof middlewares == 'array'){
-    debug('array')
+  var _middlewares  = this.middlewares;
+  // var _mount_one    = this.mount_one;
+  var _app = this.app;
+  if(typeof middlewares == 'array' || typeof middlewares == 'object'){
+    console.log('array')
+    console.dir(_middlewares)
     
     middlewares.forEach(function(i){
       console.log('mount m = ' + i);
-      var m = middlewares[i];
-      
-      this.mount_one(m);
+      // console.dir(_middlewares[i]);
+      var m = _middlewares[i];
+       console.dir(m);
+      // _mount_one(m);
+      _mount_one(_app, m);
     });
   }else if(typeof middlewares == 'function'){
     debug('function')
     var m = middlewares;
     
-    this.mount_one(m);
+    // this.mount_one(m);
+    _mount_one(_app, m);
   }else{
     console.error('cant mount this middlewares!');
   }
 }
 
 Middlewares.prototype.mount_one = function(middleware) {
+  console.dir(this)
   this.app.use(middleware);
 };
+
+
+function _mount_one(app, middleware) {
+  app.use(middleware);
+};
+
 
 Middlewares.prototype.toObject = function() {
   var requireDirectory = require('require-directory');
@@ -77,8 +92,12 @@ function _extend(des, src) {
 
 // ------- public 
 module.exports = function (app, dir) {
-  var _dir = "app/middlewares";
-  
+  var _dir = "/app/middlewares";
+
+  if(app.root_path){
+    _dir = app.root_path + "/app/middlewares";
+  }
+
   if (arguments[1]) {
     _dir = dir;
   }

@@ -8,11 +8,24 @@
 ## Usages
 
 ```
+
+var app = express();
+
+app.root_path = __dirname;
+
 var $middlewares = require('moa-middlewares')(app);
 
-middlewares.mount([
-  'cors',
-  'raw_data'
+// $middlewares.dir();
+
+// console.dir($middlewares)
+
+$middlewares.mount([
+  'cors',// 支持跨域
+  // 'check_session_is_expired',
+  'variables', // 定义变量
+  'raw_post',
+  'multer',  
+  'session',
 ])
 
 $middlewares['cors']
